@@ -358,7 +358,8 @@ module.exports = async function getJsonDataUser() {
   const currentBlock = await provider.getBlockNumber();
   console.log(currentBlock);
   const userData = [];
-  for (i = 9437000; i < currentBlock; i = i + 5000) {
+  for (i = 9437000; i < currentBlock + 5000; i = i + 5000) {
+    console.log("Processing in block " + i);
     const transactionDeposit = await bslContract.queryFilter(
       filterDeposit,
       i,
